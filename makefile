@@ -1,2 +1,2 @@
 default:
-	 g++ main.cpp -std=c++14 -o monsterMaker
+	 g++ main.cpp -o monsterMaker
