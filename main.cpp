@@ -257,19 +257,31 @@ int main(int argc, char *argv[]){
 					<< " It has " << creature_skin_type[skin(eng)] << " for skin."
 					<< endl;
 			}
+		}
 		// all possible options
-		} else if ((strcmp(option, "a")) == 0 || (strcmp(option, "--all")) == 0){
-			for (int i = 0; i < count; ++i){
-				cout << "The full list is:" << endl;
-				for (int i = 0; i < creature_size.size() -1; ++i){
+	} else if (argc == 2) {
+		// help
+		if ((strcmp (argv[1] , "h")) == 0 || (strcmp (argv[1] , "--help")) == 0){
+			cout 	<< "h or --help for this menu," << endl
+			<< "r or --random for a completely random creature," << endl
+			<< "hy or --hybrid for hybrid creature" << endl 
+			<< "--horth for a creature with the rules of Horth" << endl
+			<< "--yemit for a creature with the rules of Yemit"<< endl
+			<< "--ro for a creature with the rules of Ro" << endl
+			<< "a or --all for a complete list" << endl
+			<< endl;
+		// list all creature optionsi
+		} else if ((strcmp(argv[1], "a")) == 0 || (strcmp(argv[1], "--all")) == 0){
+			cout << "All possible random creatures\n";
+			for (int i = 0; i < argc; ++i){
+				cout << "The full list (without sizes) is:" << endl;
 				for (int j = 0; j < creature_base.size() -1; ++j){
 				for (int k = 0; k < creature_type_extreme.size() -1; ++k){
 				for (int l = 0; l < creature_magic_use.size() -1; ++l){
 				for (int m = 0; m < creature_magic_type.size() -1; ++m){
 				for (int o = 0; o < creature_appendage_type.size() -1; ++o){
 				for (int p = 0; p < creature_skin_type.size() -1; ++p){
-					cout 	<< "a " << creature_size[i] << "-sized "
-						<< creature_base[j] << "-like "
+					cout 	<< "a "	<< creature_base[j] << "-like "
 						<< creature_type_extreme[k]
 						<< ", that " << creature_magic_use[l]
 						<< " " << creature_magic_type[m]
@@ -283,19 +295,7 @@ int main(int argc, char *argv[]){
 				}
 				}
 				}
-				}
 			}
-		}
-	} else if (argc == 2) {
-		if ((strcmp (argv[1] , "h")) == 0 || (strcmp (argv[1] , "--help")) == 0){
-			cout 	<< "h or --help for this menu," << endl
-			<< "r or --random for a completely random creature," << endl
-			<< "hy or --hybrid for hybrid creature" << endl 
-			<< "--horth for a creature with the rules of Horth" << endl
-			<< "--yemit for a creature with the rules of Yemit"<< endl
-			<< "--ro for a creature with the rules of Ro" << endl
-			<< "a or --all for a complete list" << endl
-			<< endl;
 		}
        	} else {
 		cout << "The first option must be a number. The second option must be listed in the help. Use option --help for more information." << endl;
