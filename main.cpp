@@ -137,7 +137,6 @@ int main(int argc, char *argv[]){
 		"creature",
 		"humanoid",
 		"abomination",
-		"hybrid",
 		"spirit",
 		"monster",
 		"freak",
@@ -204,20 +203,8 @@ int main(int argc, char *argv[]){
 	if (argc == 3){
 		count = atoi(argv[1]);
 		option = argv[2];
-		if ((strcmp (option, "h")) == 0 || (strcmp(option, "--help")) == 0) {
-
-			for (int i = 0; i < count; ++i){
-				cout 	<< "h or --help for this menu," << endl
-					<< "r or --random for a completely random creature," << endl
-					<< "hy or --hybrid for hybrid creature" << endl 
-					<< "--horth for a creature with the rules of Horth" << endl
-					<< "--yemit for a creature with the rules of Yemit"<< endl
-					<< "--ro for a creature with the rules of Ro" << endl
-					<< "a or --all for a complete list" << endl
-					<< endl;
-			}
 		//random
-		} else if ((strcmp(option, "r" ) == 0) || (strcmp(option, "--random")) == 0) {
+		if ((strcmp(option, "r" ) == 0) || (strcmp(option, "--random")) == 0) {
 			for (int i = 0; i < count; ++i){
 				cout 	<< "A " << creature_size[size(eng)]
 					<< " " << creature_base[animal(eng)] << "-like "
@@ -235,8 +222,8 @@ int main(int argc, char *argv[]){
 				cout	<< "A " << creature_size[size(eng)] << "-sized hybrid between a "
 					<< creature_base[animal(eng)] << " and a " << creature_base[animal(eng)]
 					<< endl;
-			// horth (one of the titans) special settings
 			}
+		// horth (one of the titans) special settings
 		}else if ((strcmp(option, "--horth") == 0)){
 			for (int i = 0; i < count; ++i){
 				cout	<< "A "  << creature_size[size(eng)]
@@ -246,7 +233,7 @@ int main(int argc, char *argv[]){
 					<< " " << creature_magic_type[magic(eng)]
 					<< endl;
 			}
-			// Yemit (one of the titans) special settings
+		// Yemit (one of the titans) special settings
 		} else if ((strcmp(option, "--yemit") == 0)){
 			for (int i = 0; i < count; ++i){
 				cout 	<< "A " << creature_size[size(eng)]
@@ -259,6 +246,7 @@ int main(int argc, char *argv[]){
 					<< " It has " << creature_skin_type[skin(eng)] << " for skin."
 					<< endl;
 			}
+		// Ro (one of the titans) special settings
 		} else if ((strcmp(option, "--ro") == 0)){
 			for (int i = 0; i < count; ++i){
 				cout	<< "A "  << creature_size[size(eng)]
@@ -269,6 +257,7 @@ int main(int argc, char *argv[]){
 					<< " It has " << creature_skin_type[skin(eng)] << " for skin."
 					<< endl;
 			}
+		// all possible options
 		} else if ((strcmp(option, "a")) == 0 || (strcmp(option, "--all")) == 0){
 			for (int i = 0; i < count; ++i){
 				cout << "The full list is:" << endl;
@@ -309,6 +298,6 @@ int main(int argc, char *argv[]){
 			<< endl;
 		}
        	} else {
-		cout << "The first option must be a number. The second option must be listed in the help" << endl;
+		cout << "The first option must be a number. The second option must be listed in the help. Use option --help for more information." << endl;
 	}
 }
