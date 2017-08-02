@@ -204,112 +204,111 @@ int main(int argc, char *argv[]){
 	if (argc == 3){
 		count = atoi(argv[1]);
 		option = argv[2];
+		if ((strcmp (option, "h")) == 0 || (strcmp(option, "--help")) == 0) {
+
+			for (int i = 0; i < count; ++i){
+				cout 	<< "h or --help for this menu," << endl
+					<< "r or --random for a completely random creature," << endl
+					<< "hy or --hybrid for hybrid creature" << endl 
+					<< "--horth for a creature with the rules of Horth" << endl
+					<< "--yemit for a creature with the rules of Yemit"<< endl
+					<< "--ro for a creature with the rules of Ro" << endl
+					<< "a or --all for a complete list" << endl
+					<< endl;
+			}
+		//random
+		} else if ((strcmp(option, "r" ) == 0) || (strcmp(option, "--random")) == 0) {
+			for (int i = 0; i < count; ++i){
+				cout 	<< "A " << creature_size[size(eng)]
+					<< " " << creature_base[animal(eng)] << "-like "
+					<< creature_type_normal[type(eng)]
+					<< ", that " << creature_magic_use[magic_use(eng)]
+					<< " " << creature_magic_type[magic(eng)]
+					<< ". on this creature is a " 
+					<< creature_appendage_type[appendage(eng)] << "."
+					<< " It has " << creature_skin_type[skin(eng)] << " for skin."
+					<< endl; 
+			}
+		//hybrid
+		} else if ((strcmp(option, "hy")) == 0 || (strcmp(option, "--hybrid")) == 0){
+			for (int i = 0; i < count; ++i){
+				cout	<< "A " << creature_size[size(eng)] << "-sized hybrid between a "
+					<< creature_base[animal(eng)] << " and a " << creature_base[animal(eng)]
+					<< endl;
+			// horth (one of the titans) special settings
+			}
+		}else if ((strcmp(option, "--horth") == 0)){
+			for (int i = 0; i < count; ++i){
+				cout	<< "A "  << creature_size[size(eng)]
+					<< " "  << creature_base[animal(eng)] 
+					<< "-like " << creature_type_normal[type(eng)]
+					<< ", that " << creature_magic_use[magic_use(eng)]
+					<< " " << creature_magic_type[magic(eng)]
+					<< endl;
+			}
+			// Yemit (one of the titans) special settings
+		} else if ((strcmp(option, "--yemit") == 0)){
+			for (int i = 0; i < count; ++i){
+				cout 	<< "A " << creature_size[size(eng)]
+					<< " " << creature_base[animal(eng)]
+					<< "-like " << creature_type_extreme[type_extreme(eng)] << ", that "
+					<< creature_magic_use[magic_use(eng)]
+					<< " " << creature_magic_type[magic(eng)]
+					<< ". On this creature is a "
+					<< creature_appendage_type[appendage(eng)] << "."
+					<< " It has " << creature_skin_type[skin(eng)] << " for skin."
+					<< endl;
+			}
+		} else if ((strcmp(option, "--ro") == 0)){
+			for (int i = 0; i < count; ++i){
+				cout	<< "A "  << creature_size[size(eng)]
+					<< " "  << creature_base[animal(eng)] 
+					<< "-like " << creature_type_normal[type(eng)]
+					<< ". On this creature is a "
+					<< creature_appendage_type[appendage(eng)] << "."
+					<< " It has " << creature_skin_type[skin(eng)] << " for skin."
+					<< endl;
+			}
+		} else if ((strcmp(option, "a")) == 0 || (strcmp(option, "--all")) == 0){
+			for (int i = 0; i < count; ++i){
+				cout << "The full list is:" << endl;
+				for (int i = 0; i < creature_size.size() -1; ++i){
+				for (int j = 0; j < creature_base.size() -1; ++j){
+				for (int k = 0; k < creature_type_extreme.size() -1; ++k){
+				for (int l = 0; l < creature_magic_use.size() -1; ++l){
+				for (int m = 0; m < creature_magic_type.size() -1; ++m){
+				for (int o = 0; o < creature_appendage_type.size() -1; ++o){
+				for (int p = 0; p < creature_skin_type.size() -1; ++p){
+					cout 	<< "a " << creature_size[i] << "-sized "
+						<< creature_base[j] << "-like "
+						<< creature_type_extreme[k]
+						<< ", that " << creature_magic_use[l]
+						<< " " << creature_magic_type[m]
+						<< ". On this creature is a " 
+						<< creature_appendage_type[o] << ","
+						<< " It has " << creature_skin_type[p] << " for skin."
+						<< endl;
+				}
+				}
+				}
+				}
+				}
+				}
+				}
+			}
+		}
 	} else if (argc == 2) {
 		if ((strcmp (argv[1] , "h")) == 0 || (strcmp (argv[1] , "--help")) == 0){
 			cout 	<< "h or --help for this menu," << endl
-				<< "r or --random for a completely random creature," << endl
-				<< "hy or --hybrid for hybrid creature" << endl 
-				<< "--horth for a creature with the rules of Horth" << endl
-				<< "--yemit for a creature with the rules of Yemit"<< endl
-				<< "--ro for a creature with the rules of Ro" << endl
-				<< "a or --all for a complete list" << endl
-				<< endl;
+			<< "r or --random for a completely random creature," << endl
+			<< "hy or --hybrid for hybrid creature" << endl 
+			<< "--horth for a creature with the rules of Horth" << endl
+			<< "--yemit for a creature with the rules of Yemit"<< endl
+			<< "--ro for a creature with the rules of Ro" << endl
+			<< "a or --all for a complete list" << endl
+			<< endl;
 		}
        	} else {
 		cout << "The first option must be a number. The second option must be listed in the help" << endl;
-	}
-
-	if ((strcmp (option, "h")) == 0 || (strcmp(option, "--help")) == 0) {
-
-		for (int i = 0; i < count; ++i){
-			cout 	<< "h or --help for this menu," << endl
-				<< "r or --random for a completely random creature," << endl
-				<< "hy or --hybrid for hybrid creature" << endl 
-				<< "--horth for a creature with the rules of Horth" << endl
-				<< "--yemit for a creature with the rules of Yemit"<< endl
-				<< "--ro for a creature with the rules of Ro" << endl
-				<< "a or --all for a complete list" << endl
-				<< endl;
-		}
-	//random
-	} else if ((strcmp(option, "r" ) == 0) || (strcmp(option, "--random")) == 0) {
-		for (int i = 0; i < count; ++i){
-			cout 	<< "A " << creature_size[size(eng)]
-				<< " " << creature_base[animal(eng)] << "-like "
-				<< creature_type_normal[type(eng)]
-				<< ", that " << creature_magic_use[magic_use(eng)]
-				<< " " << creature_magic_type[magic(eng)]
-				<< ". on this creature is a " 
-				<< creature_appendage_type[appendage(eng)] << "."
-				<< " It has " << creature_skin_type[skin(eng)] << " for skin."
-				<< endl; 
-		}
-	//hybrid
-	} else if ((strcmp(option, "hy")) == 0 || (strcmp(option, "--hybrid")) == 0){
-		for (int i = 0; i < count; ++i){
-			cout	<< "A " << creature_size[size(eng)] << "-sized hybrid between a "
-				<< creature_base[animal(eng)] << " and a " << creature_base[animal(eng)]
-				<< endl;
-		// horth (one of the titans) special settings
-		}
-	}else if ((strcmp(option, "--horth") == 0)){
-		for (int i = 0; i < count; ++i){
-			cout	<< "A "  << creature_size[size(eng)]
-				<< " "  << creature_base[animal(eng)] 
-				<< "-like " << creature_type_normal[type(eng)]
-				<< ", that " << creature_magic_use[magic_use(eng)]
-				<< " " << creature_magic_type[magic(eng)]
-				<< endl;
-		}
-		// Yemit (one of the titans) special settings
-	} else if ((strcmp(option, "--yemit") == 0)){
-		for (int i = 0; i < count; ++i){
-			cout 	<< "A " << creature_size[size(eng)]
-				<< " " << creature_base[animal(eng)]
-				<< "-like " << creature_type_extreme[type_extreme(eng)] << ", that "
-				<< creature_magic_use[magic_use(eng)]
-				<< " " << creature_magic_type[magic(eng)]
-				<< ". On this creature is a "
-				<< creature_appendage_type[appendage(eng)] << "."
-				<< " It has " << creature_skin_type[skin(eng)] << " for skin."
-				<< endl;
-		}
-	} else if ((strcmp(option, "--ro") == 0)){
-		for (int i = 0; i < count; ++i){
-			cout	<< "A "  << creature_size[size(eng)]
-				<< " "  << creature_base[animal(eng)] 
-				<< "-like " << creature_type_normal[type(eng)]
-				<< ". On this creature is a "
-				<< creature_appendage_type[appendage(eng)] << "."
-				<< " It has " << creature_skin_type[skin(eng)] << " for skin."
-				<< endl;
-		}
-	} else if ((strcmp(option, "a")) == 0 || (strcmp(option, "--all")) == 0){
-		for (int i = 0; i < count; ++i){
-			cout << "The full list is:" << endl;
-			for (int i = 0; i < creature_size.size() -1; ++i){
-			for (int j = 0; j < creature_base.size() -1; ++j){
-			for (int k = 0; k < creature_type_extreme.size() -1; ++k){
-			for (int l = 0; l < creature_magic_use.size() -1; ++l){
-			for (int m = 0; m < creature_magic_type.size() -1; ++m){
-			for (int o = 0; o < creature_appendage_type.size() -1; ++o){
-			for (int p = 0; p < creature_skin_type.size() -1; ++p){
-				cout 	<< "a " << creature_size[i] << "-sized "
-					<< creature_base[j] << "-like "
-					<< creature_type_extreme[k]
-					<< ", that " << creature_magic_use[l]
-					<< " " << creature_magic_type[m]
-					<< ". On this creature is a " 
-					<< creature_appendage_type[o] << ","
-					<< " It has " << creature_skin_type[p] << " for skin."
-					<< endl;
-			}
-			}
-			}
-			}
-			}
-			}
-			}
-		}
 	}
 }
